@@ -1,9 +1,12 @@
 import pickle
 from flask import Flask, request, jsonify
+from flask_cors import CORS
+
 from model_files.ml_model import predict_mpg
 
 
 app = Flask('mpg_prediction')
+CORS(app)
 
 @app.route('/predict', methods=['POST'])
 def predict():
